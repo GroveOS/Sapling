@@ -4,6 +4,7 @@ if [[ $1 == 'from-scratch' ]]; then
 	mv CouchCMS/couch ./
 	rm -rf CouchCMS
 	couch_dir='couch'
+	mkdir embed
 	snippets_dir='embed'
 	sapling_commands_dir='sc'
 elif [[ $1 == 'alongside-couch' ]]; then
