@@ -6,6 +6,6 @@ if [[ $1 == 'couch' ]]; then
 	rm -rf CouchCMS
 elif [[ $1 == 'sapling' ]]; then
 	git clone https://github.com/GroveOS/Sapling
-	cp -r Sapling/sapling/* $snippets_dir/sapling/
+	cp -r Sapling/embed/sapling/* $snippets_dir/sapling/
 	rm -rf Sapling
 fi
