@@ -1,19 +1,41 @@
-echo "Sapling requires CouchCMS be installed before its installation. Is Couch installed already? [y/n]"
-read couch_installed
-if [[ $couch_installed == 'y' ]]; then
-	continue
+# Prepare installation based on arguments
+if [[ $1 == 'from-scratch' ]]; then
+	git clone https://github.com/CouchCMS/CouchCMS
+	mv CouchCMS/couch ./
+	rm -rf CouchCMS
+	couch_dir='couch'
+	snippets_dir='embed'
+	sapling_commands_dir='sc'
+elif [[ $1 == 'alongside-couch' ]]; then
+	if [[ $3 == 'default' ]]; then
+		couch_dir=$2
+		snippets_dir='embed'
+		sapling_commands_dir='sc'
+	else
+		couch_dir=$2
+		snippets_dir=$3
+		sapling_commands_dir=$4
+	fi
 else
-	echo "Please install Couch first. You can come back here when you've done that."
-	exit 1
+	couch_dir=$1
+	snippets_dir=$2
+	sapling_commands_dir=$3
 fi
 
-echo "Please type the location of your Couch directory. You can type 'default' or the directory location relative to your project root. No trailing slashes please."
-read couch_dir
-echo "Please type your Couch snippets directory. You can type 'default' or the directory location relative to your project root. No trailing slashes please."
-read snippets_dir
-echo "Sapling keeps quick commands handy in a directory in the root of your project. By default, this directory is 'sc', which enables you to call quick commands from your terminal like 'sc/create template posts'."
-echo "What would you like to name this directory? You can type 'default' or your desired directory location relative to your project root. No trailing slashes please."
-read sapling_commands_dir
+if [[ ! $couch_dir ]]; then
+	echo "No Couch directory provided. Aborted."
+	exit 0
+fi
+
+if [[ ! $snippets_dir ]]; then
+	echo "No Couch snippets directory provided. Aborted."
+	exit 0
+fi
+
+if [[ ! $sapling_commands_dir ]]; then
+	echo "No Sapling commands directory provided. Aborted."
+	exit 0
+fi
 
 # Set up sapling directory and config.sh file
 mkdir $sapling_commands_dir
