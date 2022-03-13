@@ -12,6 +12,8 @@
 !/embed/*
 
 !/embed/sapling
+!/embed/sapling/*
+
 !/embed/sapling/funcs
 !/embed/sapling/funcs/*
 !/embed/sapling/layout
