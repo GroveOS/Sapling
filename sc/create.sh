@@ -2,8 +2,12 @@
 
 if [[ $1 == 'template' ]]; then
 	template=$2
-	create_template $template
-	create_template_folder $template
+	if [[ ! -f $template.php ]]; then
+		echo "Error: $template.php already exists. Will not continue."
+	else
+		create_template $template
+		create_template_folder $template
+	fi
 elif [[ $1 == 'view' ]]; then
 	view=$2
 	template=$3
