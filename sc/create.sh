@@ -2,7 +2,7 @@
 
 if [[ $1 == 'template' ]]; then
 	template=$2
-	if [[ ! -f $template.php ]]; then
+	if [[ -f $template.php ]]; then
 		echo "Error: $template.php already exists. Will not continue."
 	else
 		create_template $template
