@@ -3,15 +3,15 @@ if [[ $1 == 'from-scratch' ]]; then
 	git clone https://github.com/CouchCMS/CouchCMS
 	mv CouchCMS/couch ./
 	rm -rf CouchCMS
-	couch_dir='couch'
+	couch_dir="couch"
 	mkdir embed
-	snippets_dir='embed'
-	sapling_commands_dir='sc'
+	snippets_dir="embed"
+	sapling_commands_dir="sc"
 elif [[ $1 == 'alongside-couch' ]]; then
 	if [[ $3 == 'default' ]]; then
 		couch_dir=$2
-		snippets_dir='embed'
-		sapling_commands_dir='sc'
+		snippets_dir="embed"
+		sapling_commands_dir="sc"
 	else
 		couch_dir=$2
 		snippets_dir=$3
