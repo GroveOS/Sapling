@@ -7,4 +7,5 @@ if [[ $1 == 'template' ]]; then
 elif [[ $1 == 'view' ]]; then
 	view=$2
 	template=$3
+	rm $snippets_dir/sapling/templates/$template/views/$view.html
 fi
