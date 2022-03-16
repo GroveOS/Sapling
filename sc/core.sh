@@ -89,20 +89,30 @@ function create_template {
 
 # Create a template folder, given template
 function create_template_folder {
+	
 	desc="expects one argument: template_name"
 	success="Successfully made $1 template folder"
+
 	if [[ $1 ]]; then
+
+		# Create directories
 		mkdir $root_dir/$snippets_dir/sapling/templates/$1
 		mkdir $root_dir/$snippets_dir/sapling/templates/$1/views
+
+		# Create files
+		touch $root_dir/$snippets_dir/sapling/templates/$1/template.css
 		for item in list show archive folder; do
 			touch $root_dir/$snippets_dir/sapling/templates/$1/views/$item.html
+			touch $root_dir/$snippets_dir/sapling/templates/$1/views/$item.css
 		done
 		for item in routes config-list config-form editables; do
 			touch $root_dir/$snippets_dir/sapling/templates/$1/$item.html
 		done
+
 		if [[ -d $root_dir/$snippets_dir/sapling/templates/$1 && -d $root_dir/$snippets_dir/sapling/templates/$1/views ]]; then
 			throw_success
 		fi
+
 	else
 		throw_expectation_error
 	fi

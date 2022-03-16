@@ -12,4 +12,5 @@ elif [[ $1 == 'view' ]]; then
 	view=$2
 	template=$3
 	touch $snippets_dir/sapling/templates/$template/views/$view.html
+	touch $snippets_dir/sapling/templates/$template/views/$view.css
 fi
