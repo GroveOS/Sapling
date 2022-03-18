@@ -40,9 +40,9 @@ fi
 
 # Set up sapling directory and config.sh file
 mkdir $sapling_commands_dir
-echo "couch_dir=$couch_dir" >> $sapling_commands_dir/config.sh
-echo "snippets_dir=$snippets_dir" >> $sapling_commands_dir/config.sh
-echo "sapling_commands_dir=$sapling_commands_dir" >> $sapling_commands_dir/config.sh
+echo "couch_dir=\"$couch_dir\"" >> $sapling_commands_dir/config.sh
+echo "snippets_dir=\"$snippets_dir\"" >> $sapling_commands_dir/config.sh
+echo "sapling_commands_dir=\"$sapling_commands_dir\"" >> $sapling_commands_dir/config.sh
 
 if [[ -d $couch_dir && -d $snippets_dir && $sapling_commands_dir ]]; then
 	echo "Sapling installing . . ."
@@ -53,6 +53,10 @@ fi
 
 cp -r Sapling/embed ./
 cp -r Sapling/sc ./
+if [[ $1 == 'from-scratch' ]]; then
+	# Copy Sapling flavored config.php to couch/config.php
+	cp Sapling/embed/sapling/lib/sapling.config.php couch/config.php
+fi
 for item in head header footer; do
 	if [[ ! -f $snippets_dir/sapling/layout/$item.html ]]; then
 		mv $snippets_dir/sapling/layout/sapling.$item.html $snippets_dir/sapling/layout/$item.html
