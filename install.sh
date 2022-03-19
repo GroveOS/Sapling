@@ -57,6 +57,11 @@ if [[ $1 == 'from-scratch' ]]; then
 	# Copy Sapling flavored config.php to couch/config.php
 	cp Sapling/embed/sapling/lib/sapling.config.php couch/config.php
 fi
+
+if [[ ! -f $snippets_dir/sapling/config.json ]]; then
+	mv embed/sapling/config.example.json embed/sapling/config.json
+fi
+
 for item in head header footer; do
 	if [[ ! -f $snippets_dir/sapling/layout/$item.html ]]; then
 		mv $snippets_dir/sapling/layout/sapling.$item.html $snippets_dir/sapling/layout/$item.html

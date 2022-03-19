@@ -1,8 +1,10 @@
 /couch
 /*.php
 /sc/config.sh
+/embed/sapling/config.json
 /embed/sapling/layout/head.html
 /embed/sapling/layout/header.html
 /embed/sapling/layout/footer.html
+/embed/sapling/addons/kfunctions.php
 /embed/sapling/templates/*
 !/embed/sapling/templates/.gitkeep

@@ -35,25 +35,25 @@
 
 
 <!-- INSERT CSS -->
-<cms:func 'insert-css'>
+<cms:func 'insert-css' template="<cms:call 'template-basename' k_template_name />">
 	<!-- Template CSS -->
 	<style type="text/css">
-		<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/template.css" />
+		<cms:embed file="sapling/templates/<cms:show template />/template.css" />
 	</style>
 	<!-- View CSS -->
 	<style type="text/css">
 		<cms:if k_template_routable>
-			<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/<cms:show k_matched_route />.css" />
+			<cms:embed file="sapling/templates/<cms:show template />/views/<cms:show k_matched_route />.css" />
 		<cms:else />
 			<cms:if k_is_page>
-				<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/show.css" />
+				<cms:embed file="sapling/templates/<cms:show template />/views/show.css" />
 			<cms:else />
 				<cms:if k_is_folder>
-					<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/folder.css" />
+					<cms:embed file="sapling/templates/<cms:show template />/views/folder.css" />
 				<cms:else_if k_is_archive />
-					<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/archive.css" />
+					<cms:embed file="sapling/templates/<cms:show template />/views/archive.css" />
 				<cms:else />
-					<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/list.css" />
+					<cms:embed file="sapling/templates/<cms:show template />/views/list.css" />
 				</cms:if>
 			</cms:if>
 		</cms:if>
