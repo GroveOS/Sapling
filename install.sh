@@ -79,9 +79,7 @@ fi
 
 # sapling/layout/ head header footer
 for item in head header footer; do
-	if [[ ! -f $snippets_dir/sapling/layout/$item.html ]]; then
-		mv $snippets_dir/sapling/layout/sapling.$item.html $snippets_dir/sapling/layout/$item.html
-	fi
+	touch $snippets_dir/sapling/layout/$item.html
 done
 
 # Clean up

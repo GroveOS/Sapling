@@ -2,7 +2,7 @@
 if ( !defined('K_COUCH_DIR') ) die(); // cannot be loaded directly
 
 //require_once( K_SNIPPETS_DIR.'/sapling/addons/curl/curl.php' );
-require_once( K_SNIPPETS_DIR.'/sapling/addons/minify-js-css/minify.php' );
+//require_once( K_SNIPPETS_DIR.'/sapling/addons/minify-js-css/minify.php' );
 //require_once( K_SNIPPETS_DIR.'/sapling/addons/parsedown/parsedown.php' );
 //require_once( K_SNIPPETS_DIR.'/sapling/addons/phpmailer/phpmailer.php' );
 //require_once( K_SNIPPETS_DIR.'/sapling/addons/redirector/redirector.php' );
