@@ -59,8 +59,8 @@ echo "couch_dir=\"$couch_dir\"\nsnippets_dir=\"$snippets_dir\"\nsapling_commands
 
 ##### INSTALLTION #####
 
-cp -r Sapling/embed ./$snippets_dir
-cp -r Sapling/sc ./$sapling_commands_dir
+cp -r Sapling/embed/ ./$snippets_dir
+cp -r Sapling/sc/ ./$sapling_commands_dir
 
 # sapling/config.json
 if [[ ! -f $snippets_dir/sapling/config.json ]]; then
