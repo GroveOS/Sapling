@@ -62,11 +62,6 @@ echo "couch_dir=\"$couch_dir\"\nsnippets_dir=\"$snippets_dir\"\nsapling_commands
 cp -r Sapling/embed ./$snippets_dir
 cp -r Sapling/sc ./$sapling_commands_dir
 
-if [[ $1 == 'from-scratch' ]]; then
-	# Install default Sapling flavored Couch configs 
-	cp -r $snippets_dir/sapling/lib/couch/* $couch_dir/
-fi
-
 # sapling/config.json
 if [[ ! -f $snippets_dir/sapling/config.json ]]; then
 	mv $snippets_dir/sapling/config.example.json $snippets_dir/sapling/config.json
@@ -81,6 +76,12 @@ fi
 for item in head header footer; do
 	touch $snippets_dir/sapling/layout/$item.html
 done
+
+if [[ $1 == 'from-scratch' ]]; then
+	# Install default Sapling flavored Couch configs 
+	cp -r $snippets_dir/sapling/lib/couch/* $couch_dir/
+	sc/create.sh template index
+fi
 
 # Clean up
 rm -rf Sapling
