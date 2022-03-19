@@ -1,5 +1,8 @@
 /couch
 /*.php
 /sc/config.sh
+/embed/sapling/layout/head.html
+/embed/sapling/layout/header.html
+/embed/sapling/layout/footer.html
 /embed/sapling/templates/*
 !/embed/sapling/templates/.gitkeep
