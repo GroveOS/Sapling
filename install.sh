@@ -1,3 +1,5 @@
+ #!/bin/bash
+ 
 # Prepare installation based on arguments
 if [[ $1 == 'from-scratch' ]]; then
 	# Clone CouchCMS

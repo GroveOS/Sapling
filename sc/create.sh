@@ -1,3 +1,5 @@
+ #!/bin/bash
+
 . sc/core.sh
 
 if [[ $1 == 'template' ]]; then

@@ -1,3 +1,5 @@
+ #!/bin/bash
+
 ##### - - - - - CONTENTS - - - - - #####
 
 # - - - Check for errors before starting
