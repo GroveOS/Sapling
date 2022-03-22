@@ -17,7 +17,7 @@
 
 sapling_dir=$(dirname $0)
 
-if [[ -f  $sapling_dir/config.sh ]]; then
+if [ -f  $sapling_dir/config.sh ]; then
 	. $sapling_dir/config.sh
 else
 	echo "Warning: $(dirname $0)/config.sh missing. Using default values."
@@ -27,16 +27,16 @@ else
 fi
 
 # Check that config.sh values are valid
-if [[ -d $sapling_dir/../$couch_dir && -d $sapling_dir/../$snippets_dir && -d $sapling_dir/../$sapling_commands_dir  ]]; then
+if [ -d $sapling_dir/../$couch_dir && -d $sapling_dir/../$snippets_dir && -d $sapling_dir/../$sapling_commands_dir  ]; then
 	echo "Notice: default directories exist."
 else
-	if [[ ! -d $sapling_dir/../$couch_dir  ]]; then
+	if [ ! -d $sapling_dir/../$couch_dir  ]; then
 		echo "Error: config value for Couch directory does not exist"
 	fi
-	if [[ ! -d $sapling_dir/../$snippets_dir  ]]; then
+	if [ ! -d $sapling_dir/../$snippets_dir  ]; then
 		echo "Error: config value for Couch snippets directory does not exist"
 	fi
-	if [[ ! -d $sapling_dir/../$sapling_commands_dir  ]]; then
+	if [ ! -d $sapling_dir/../$sapling_commands_dir  ]; then
 		echo "Error: config value for Sapling commands directory does not exist"
 	fi
 fi
@@ -79,7 +79,7 @@ function throw_success {
 function create_template {
 	desc="expects one argument: template_name"
 	success="Successfully created template, $1.php"
-	if [[ $1 ]]; then
+	if [ $1 ]; then
 		template=$1
 		touch $root_dir/$template.php
 		echo "<?php require_once('$couch_dir/cms.php');?>\n\n\n\n<?php COUCH::invoke();?>" >> $root_dir/$template.php
@@ -95,7 +95,7 @@ function create_template_folder {
 	desc="expects one argument: template_name"
 	success="Successfully made $1 template folder"
 
-	if [[ $1 ]]; then
+	if [ $1 ]; then
 
 		# Create directories
 		mkdir $root_dir/$snippets_dir/sapling/templates/$1
@@ -111,7 +111,7 @@ function create_template_folder {
 			touch $root_dir/$snippets_dir/sapling/templates/$1/$item.html
 		done
 
-		if [[ -d $root_dir/$snippets_dir/sapling/templates/$1 && -d $root_dir/$snippets_dir/sapling/templates/$1/views ]]; then
+		if [ -d $root_dir/$snippets_dir/sapling/templates/$1 && -d $root_dir/$snippets_dir/sapling/templates/$1/views ]; then
 			throw_success
 		fi
 
@@ -131,8 +131,8 @@ function create_template_folder {
 function remove_template {
 	desc="expects one argument: template_name"
 	success="Successfully deleted $1.php"
-	if [[ $1 ]]; then
-		if [[ -f $root_dir/$1.php ]]; then
+	if [ $1 ]; then
+		if [ -f $root_dir/$1.php ]; then
 			rm $root_dir/$1.php
 			throw_success
 		else
@@ -148,8 +148,8 @@ function remove_template {
 function remove_template_folder {
 	desc="expects one argument: template_name"
 	success="Successfully removed $1"
-	if [[ $1 ]]; then
-		if [[ -d $snippets_dir/sapling/templates/$1 ]]; then
+	if [ $1 ]; then
+		if [ -d $snippets_dir/sapling/templates/$1 ]; then
 			rm -r $snippets_dir/sapling/templates/$1
 			throw_success
 		else
