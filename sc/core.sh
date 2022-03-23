@@ -82,7 +82,7 @@ function create_template {
 	if [[ $1 ]]; then
 		template=$1
 		touch $root_dir/$template.php
-		echo "<?php require_once('$couch_dir/cms.php');?>\n\n\n\n<?php COUCH::invoke();?>" >> $root_dir/$template.php
+		echo -e "<?php require_once('$couch_dir/cms.php');?>\n\n\n\n<?php COUCH::invoke();?>" >> $root_dir/$template.php
 		throw_success
 	else
 		throw_expectation_error
