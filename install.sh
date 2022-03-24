@@ -52,7 +52,9 @@ fi
 
 # Set up sapling directory and prepare config.sh file
 mkdir $sapling_commands_dir
-echo -e "couch_dir=\"$couch_dir\"\nsnippets_dir=\"$snippets_dir\"\nsapling_commands_dir=\"$sapling_commands_dir\"" >> $sapling_commands_dir/config.sh
+echo "couch_dir=\"$couch_dir\"" >> $sapling_commands_dir/config.sh
+echo "snippets_dir=\"$snippets_dir\"" >>  $sapling_commands_dir/config.sh
+echo  "sapling_commands_dir=\"$sapling_commands_dir\"" >> $sapling_commands_dir/config.sh
 
 
 
