@@ -65,6 +65,7 @@ echo  "sapling_commands_dir=\"$sapling_commands_dir\"" >> $sapling_commands_dir/
 
 cp -r Sapling/embed/* ./$snippets_dir/
 cp -r Sapling/sc/* ./$sapling_commands_dir/
+touch ./$snippets_dir/sapling.html
 
 # sapling/config.json
 if [[ ! -f $snippets_dir/sapling/config.json ]]; then

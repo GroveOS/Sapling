@@ -1,6 +1,7 @@
 /couch
 /*.php
 /sc/config.sh
+/embed/sapling.html
 /embed/sapling/config.json
 /embed/sapling/layout/head.html
 /embed/sapling/layout/header.html
