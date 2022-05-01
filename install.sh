@@ -93,7 +93,7 @@ done
 if [[ $install_type == 'full' ]]; then
 	# Install default Sapling flavored Couch configs 
 	cp -r $snippets_dir/sapling/lib/couch/* $couch_dir/
-	sc/create.sh template index
+	$sc_dir/create.sh template index
 fi
 
 
