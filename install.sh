@@ -16,6 +16,7 @@ if [[ $# == 3 ]]; then
 	sc_dir=$3
 elif [[ $# == 4 ]]; then
 	if [[ $1 == 'alongside' ]]; then
+		install_type='alongside';
 		couch_dir=$2;
 		snippets_dir=$3;
 		sc_dir=$4;
@@ -30,11 +31,11 @@ elif [[ $# > 0 ]]; then
 fi
 
 
-# Install CouchCMS and setup snippets_dir. This is a clean install.
-if [[ $install_type == 'full' ]]; then
+# Clean install
+if [[ $install_type == 'full' || $install_type == 'custom' ]]; then
 	# Clone CouchCMS
 	git clone https://github.com/CouchCMS/CouchCMS
-	mv CouchCMS/couch ./
+	mv CouchCMS/couch ./$couch_dir
 	rm -rf CouchCMS
 	# Setup snippets directory
 	mkdir $snippets_dir
@@ -47,7 +48,7 @@ fi
 
 ##### CHECK FOR VARIABLE ERRORS ######
 # Check that couch_dir and snippets_dir directories do indeed exist
-if [[ $install_type == 'custom' ]]; then
+if [[ $install_type == 'alongside' ]]; then
 	if [[ ! -d $couch_dir || ! -d $snippets_dir ]]; then
 		echo "Either your couch_dir or your snippets_dir is invalid. Make sure those directories exist if you want to do a custom set up.";
 		exit 0
