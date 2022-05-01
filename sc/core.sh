@@ -27,9 +27,7 @@ else
 fi
 
 # Check that config.sh values are valid
-if [[ -d $sapling_dir/../$couch_dir && -d $sapling_dir/../$snippets_dir && -d $sapling_dir/../$sapling_commands_dir  ]]; then
-	echo "Notice: default directories exist."
-else
+if [[ ! -d $sapling_dir/../$couch_dir && ! -d $sapling_dir/../$snippets_dir && ! -d $sapling_dir/../$sapling_commands_dir  ]]; then
 	if [[ ! -d $sapling_dir/../$couch_dir  ]]; then
 		echo "Error: config value for Couch directory does not exist"
 	fi
