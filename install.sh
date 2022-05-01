@@ -90,7 +90,7 @@ for item in head header footer; do
 	touch $snippets_dir/sapling/layout/$item.html
 done
 
-if [[ $install_type == 'full' ]]; then
+if [[ $install_type == 'full' || $install_type == 'custom' ]]; then
 	# Install default Sapling flavored Couch configs 
 	cp -r $snippets_dir/sapling/lib/couch/* $couch_dir/
 	$sc_dir/create.sh template index
