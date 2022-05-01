@@ -30,12 +30,14 @@ elif [[ $# > 0 ]]; then
 fi
 
 
-# Install CouchCMS. This is a clean install.
+# Install CouchCMS and setup snippets_dir. This is a clean install.
 if [[ $install_type == 'full' ]]; then
 	# Clone CouchCMS
 	git clone https://github.com/CouchCMS/CouchCMS
 	mv CouchCMS/couch ./
 	rm -rf CouchCMS
+	# Setup snippets directory
+	mkdir $snippets_dir
 fi
 
 
