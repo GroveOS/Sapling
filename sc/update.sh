@@ -1,6 +1,6 @@
  #!/bin/bash
 
-. sc/core.sh
+. $(dirname "$0")/core.sh
 
 if [[ $1 == 'couch' ]]; then
 	git clone https://github.com/CouchCMS/CouchCMS
