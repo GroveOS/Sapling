@@ -4,7 +4,7 @@
 # sapling/install.sh {:couch_directory} {:embed_directory} {:sc_directory}
 
 # Setup default values
-install_type='full';
+install_type='standard';
 couch_dir='couch';
 snippets_dir='embed'
 sc_dir='sc'
@@ -32,7 +32,7 @@ fi
 
 
 # Clean install
-if [[ $install_type == 'full' || $install_type == 'custom' ]]; then
+if [[ $install_type == 'standard' || $install_type == 'custom' ]]; then
 	# Clone CouchCMS
 	git clone https://github.com/CouchCMS/CouchCMS
 	mv CouchCMS/couch ./$couch_dir
@@ -90,9 +90,14 @@ for item in head header footer; do
 	touch $snippets_dir/sapling/layout/$item.html
 done
 
-if [[ $install_type == 'full' || $install_type == 'custom' ]]; then
-	# Install default Sapling flavored Couch configs 
-	cp -r $snippets_dir/sapling/lib/couch/* $couch_dir/
+if [[ $install_type == 'standard' || $install_type == 'custom' ]]; then
+	# Install default Sapling flavored Couch configs
+	cp $snippets_dir/sapling/lib/couch/addons/kfunctions.php
+	# Install standard Sapling couch/config.php
+	if [[ $install_type == 'standard' ]]; then
+		cp $snippets_dir/sapling/lib/couch/standard.config.php $couch_dir/config.php
+	fi
+	# Go ahead and create a blank index.php template
 	$sc_dir/create.sh template index
 fi
 

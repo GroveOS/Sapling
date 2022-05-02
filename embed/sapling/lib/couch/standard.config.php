@@ -1,10 +1,6 @@
 <?php
     // -1.
-    // Sapling flavored CouchCMS config.php
-    // This gets installed upon 'from-scratch' installations
-    // of Sapling. Basically, it arranges some constraints below
-    // to play nice with default MAMP confirgurations and changes
-    // the default  snippets directory to embed instead of couch/snippets
+    // Default Sapling flavored CouchCMS config.php
 
     if ( !defined('K_COUCH_DIR') ) die(); // cannot be loaded directly
 
@@ -200,4 +196,4 @@
     // <a href="https://www.couchcms.com/" title="CouchCMS - Simple Open-Source Content Management">CouchCMS</a></div>
     //
     // Failing to do so will constitute a violation of the CPAL license this software is provided under.
-    define( 'K_REMOVE_FOOTER_LINK', 1 );
+    define( 'K_REMOVE_FOOTER_LINK', 0 );
