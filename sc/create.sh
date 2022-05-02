@@ -5,10 +5,13 @@
 if [[ $1 == 'template' ]]; then
 	template=$2
 	if [[ -f $template.php ]]; then
-		echo "Error: $template.php already exists. Will not continue."
-	else
-		create_template $template
-		create_template_folder $template
+		if [[ -d $snippets_dir/templates/$template ]]; then
+			echo "Error: Both $template.php and its associated template directory already exist. Please investigate this; we aren't proceeding."
+		else
+			echo "Head's up: $template.php exists, but its tempalte directory doesn't. We'll create the template directory, but be sure to link it up in the existing $template.php file; we aren't touch that."
+			create_template $template
+			create_template_folder $template
+		fi
 	fi
 elif [[ $1 == 'view' ]]; then
 	view=$2
