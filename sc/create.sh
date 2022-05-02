@@ -8,7 +8,7 @@ if [[ $1 == 'template' ]]; then
 		if [[ -d $snippets_dir/templates/$template ]]; then
 			echo "Error: Both $template.php and its associated template directory already exist. Please investigate this; we aren't proceeding."
 		else
-			echo "Head's up: $template.php exists, but its tempalte directory doesn't. We'll create the template directory, but be sure to link it up in the existing $template.php file; we aren't touch that."
+			echo "Head's up: $template.php exists, but its template directory doesn't exist. So we'll create the template directory, but be sure to link up the existing $template.php file; we aren't touching that."
 			create_template $template
 			create_template_folder $template
 		fi
