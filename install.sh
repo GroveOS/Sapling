@@ -73,12 +73,24 @@ echo  "sc_dir=\"$sc_dir\"" >> $sc_dir/config.sh
 
 cp -r Sapling/embed/* ./$snippets_dir/
 cp -r Sapling/sc/* ./$sc_dir/
-touch ./$snippets_dir/sapling.html
+
+# Install a sapling.html file if none exists
+if [[ ! -f $snippets_dir/sapling.html ]]; then
+	touch ./$snippets_dir/sapling.html && echo "<cms:embed 'sapling/init.html' />" >> ./$snippets_dir/sapling.html
+fi
 
 # sapling/layout/ head header footer
 for item in head header footer; do
 	touch $snippets_dir/sapling/layout/$item.html
 done
+
+# Install Sapling config.json and kfunctions.php example files
+if [[ ! -f $snippets_dir/sapling/addons/kfunctions.php ]]; then
+	cp $snippets_dir/sapling/addons/kfunctions.example.json $snippets_dir/sapling/addons/kfunctions.json
+fi
+if [[ ! -f $snippets_dir/sapling/config.json ]]; then
+	cp $snippets_dir/sapling/config.example.json $snippets_dir/sapling/config.json
+fi
 
 if [[ $install_type == 'standard' || $install_type == 'custom' ]]; then
 	# Install default Sapling flavored Couch configs
