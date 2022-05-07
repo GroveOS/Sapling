@@ -5,7 +5,9 @@ To see it in action, visit the <a href="https://github.com/GroveOS/Sapling/tree/
 
 ## Requirements
 - Familiarity with CouchCMS (couchcms.com)
-- A unix like development environment (Linux, Mac, or something that can run bash scripts)
+- A unix like development environment that can run bash scripts:
+	- Linux or Mac
+	- Windows Subsystem for Linux aka WSL
 
 ## Quick install
 ```bash
