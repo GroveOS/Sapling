@@ -86,7 +86,7 @@ done
 
 # Install Sapling config.json and kfunctions.php example files
 if [[ ! -f $snippets_dir/sapling/addons/kfunctions.php ]]; then
-	cp $snippets_dir/sapling/addons/kfunctions.example.json $snippets_dir/sapling/addons/kfunctions.json
+	cp $snippets_dir/sapling/addons/kfunctions.example.php $snippets_dir/sapling/addons/kfunctions.php
 fi
 if [[ ! -f $snippets_dir/sapling/config.json ]]; then
 	cp $snippets_dir/sapling/config.example.json $snippets_dir/sapling/config.json
