@@ -118,3 +118,7 @@ In your text editor, navigate to **embed/sapling/templates/index/views/list.html
 ```
 
 Now, hop into your browser and navigate to the home page of your project. You should see our simple "Welcome" heading we created earlier
+
+- - -
+
+( TO BE CONTINUED )
