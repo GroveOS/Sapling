@@ -75,16 +75,6 @@ cp -r Sapling/embed/* ./$snippets_dir/
 cp -r Sapling/sc/* ./$sc_dir/
 touch ./$snippets_dir/sapling.html
 
-# sapling/config.json
-if [[ ! -f $snippets_dir/sapling/config.json ]]; then
-	mv $snippets_dir/sapling/config.example.json $snippets_dir/sapling/config.json
-fi
-
-# sapling/addons/kfunctions.php
-if [[ ! -f $snippets_dir/sapling/addons/kfunctions.php ]]; then
-	mv $snippets_dir/sapling/addons/kfunctions.example.php $snippets_dir/sapling/addons/kfunctions.php
-fi
-
 # sapling/layout/ head header footer
 for item in head header footer; do
 	touch $snippets_dir/sapling/layout/$item.html
@@ -92,11 +82,8 @@ done
 
 if [[ $install_type == 'standard' || $install_type == 'custom' ]]; then
 	# Install default Sapling flavored Couch configs
-	cp $snippets_dir/sapling/lib/couch/addons/kfunctions.php
-	# Install standard Sapling couch/config.php
-	if [[ $install_type == 'standard' ]]; then
-		cp $snippets_dir/sapling/lib/couch/standard.config.php $couch_dir/config.php
-	fi
+	cp $snippets_dir/sapling/lib/couch/addons/kfunctions.php $couch_dir/addons/kfunctions.php
+	cp $snippets_dir/sapling/lib/couch/config.php $couch_dir/config.php
 	# Go ahead and create a blank index.php template
 	$sc_dir/create.sh template index
 fi
