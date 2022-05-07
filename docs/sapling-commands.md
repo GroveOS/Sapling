@@ -1,7 +1,7 @@
 # Sapling commands
 By default, Sapling commands are located in the **sc/** directory. Sapling commands are executable, so you should be able to simply type `sc/{:command}.sh` in your terminal to execute a Sapling command.
 
-***Important***: these commands hop around, make new files, and remove things. There's probably an elegant way of calling the script from anywhere (we're working on that). In the meantime, just make sure your execute the command from the root of your project directory.
+***Important***: these commands hop around, make new files, and remove things. There's probably an elegant way of calling the script from anywhere (we're working on that), but, in the meantime, just make sure you execute the command from the root of your project directory.
 
 Here are the available commands:
 - [sc/create.sh](#sccreatesh)

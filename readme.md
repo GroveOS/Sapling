@@ -1,7 +1,7 @@
 # Sapling
 A CouchCMS starter codebase for building maintainable CouchCMS projects.
 
-To see it in action, visit our <a href="https://github.com/GroveOS/Sapling/docs">Reference Guide</a>.
+To see it in action, visit the <a href="https://github.com/GroveOS/Sapling/tree/root/docs">Docs</a>.
 
 ## Requirements
 - Familiarity with CouchCMS (couchcms.com)
