@@ -1,0 +1,18 @@
+<div class="select filter-field">
+    <cms:show k_filter_dropdown />
+    <span class="select-caret"><cms:show_icon 'caret-bottom' /></span>
+</div>
+
+<cms:admin_add_js>
+    $(function(){
+        $('#<cms:show k_filter_id />').on( "change", function(){
+            var $this  = $( this );
+            var link = '<cms:show k_filter_link />';
+            var val = $this.val();
+            if( val != -1 ){
+                link += '&<cms:show k_filter_qs />=' + val;
+            }
+            document.location.href = link;
+        });
+    });
+</cms:admin_add_js>

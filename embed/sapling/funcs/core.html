@@ -1,0 +1,71 @@
+<cms:compress collapse_whitespace="true" disable_comments="true">
+
+<!-- EMBED IF AVAILABLE -->
+<!-- This function is like <cms:embed />, except if
+	the file is not availalbe, it simply won't render, instead
+	of throwing an error, as is default with <cms:embed /> -->
+<cms:func 'embed-if-available' file=''><cms:php>if(file_exists(K_SITE_DIR . '/' . K_SNIPPETS_DIR . "/<cms:show file />")){<cms:embed file=file />}</cms:php></cms:func>
+
+<!-- TEMPLATE BASENAME -->
+<!-- This function will strip the .php from
+	any php file passed as an argument -->
+<cms:func 'template-basename' template=''><cms:php>echo(basename("<cms:show template />", '.php'));</cms:php></cms:func>
+
+<!-- VIEW ROUTER -->
+<!-- This function checks both routable and
+	non-routable templates and determins which
+	view to present based on matched_route or based
+	on the default k_is_page, k_is_home, etc variables -->
+<cms:func 'view-router' debug=debug>
+	<cms:if k_template_routable>
+		<cms:match_route debug=debug />
+		<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/<cms:show k_matched_route />.html" />
+	<cms:else />
+		<cms:if k_is_page>
+			<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/show.html" />
+		<cms:else />
+			<cms:if k_is_folder>
+				<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/folder.html" />
+			<cms:else_if k_is_archive />
+				<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/archive.html" />
+			<cms:else />
+				<cms:embed file="sapling/templates/<cms:call 'template-basename' k_template_name />/views/list.html" />
+			</cms:if>
+		</cms:if>
+	</cms:if>
+</cms:func>
+
+
+<!-- INSERT CSS -->
+<cms:func 'insert-css' template="<cms:call 'template-basename' k_template_name />">
+	<!-- Template CSS -->
+	<style type="text/css">
+		<cms:embed file="sapling/templates/<cms:show template />/template.css" />
+	</style>
+	<!-- View CSS -->
+	<style type="text/css">
+		<cms:if k_template_routable>
+			<cms:embed file="sapling/templates/<cms:show template />/views/<cms:show k_matched_route />.css" />
+		<cms:else />
+			<cms:if k_is_page>
+				<cms:embed file="sapling/templates/<cms:show template />/views/show.css" />
+			<cms:else />
+				<cms:if k_is_folder>
+					<cms:embed file="sapling/templates/<cms:show template />/views/folder.css" />
+				<cms:else_if k_is_archive />
+					<cms:embed file="sapling/templates/<cms:show template />/views/archive.css" />
+				<cms:else />
+					<cms:embed file="sapling/templates/<cms:show template />/views/list.css" />
+				</cms:if>
+			</cms:if>
+		</cms:if>
+	</style>
+</cms:func>
+
+
+<!-- Define site.config variable -->
+<cms:func 'define' var='' value='' scope='global'>
+	<cms:put var=var value=value scope=scope />
+</cms:func>
+
+</cms:compress>

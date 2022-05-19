@@ -1,0 +1,8 @@
+<cms:capture into='site' is_json='1'>
+	{
+		"res" : [],
+		"config" : <cms:embed 'sapling/config.json' />
+	}
+</cms:capture>
+<cms:embed 'sapling/funcs/core.html' />
+<cms:call 'view-router' />

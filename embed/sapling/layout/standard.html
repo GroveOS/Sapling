@@ -1,0 +1,23 @@
+<cms:block 'pre-html' />
+<!DOCTYPE html>
+<html>
+<head>
+	<cms:block 'head'>
+		<title><cms:block 'title' /></title>
+		<cms:block 'meta'>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		</cms:block>
+		<cms:embed 'sapling/layout/head.html' />
+	</cms:block>
+	<cms:call 'insert-css' />
+</head>
+<body>
+	<cms:block 'pre-header' />
+	<cms:block 'header'><cms:embed 'sapling/layout/header.html' /></cms:block>
+	<cms:block 'content' />
+	<cms:block 'footer'><cms:embed 'sapling/layout/footer.html' /></cms:block>
+	<cms:block 'post-footer' />
+</body>
+</html>
+<cms:block 'post-html' />
