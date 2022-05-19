@@ -109,7 +109,7 @@ bash sc/create.sh view hello-world index
 
 Think of that as saying **sc/create.sh** a **view** named **hello-world** for the **index**.php template. `bash sc/create.sh view hello-world index` It has created a hello-world.html and a hello-world.css file inside **embed/sapling/templates/index/views/**, which we'll use in a bit.
 
-In your text editor, navigate to **embed/sapling/templates/index/views/list.html**, or fuzzy search **index list.html**. It should be blank, so let's fix that.
+In your text editor, navigate to **embed/sapling/templates/index/views/hello-world.html**, or fuzzy search **index hello world**. It should be blank, so let's fix that.
 
 ```html
 <html>

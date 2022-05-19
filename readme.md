@@ -1,9 +1,10 @@
-# Sapling
+# Sapling (alpha stage)
 A CouchCMS starter codebase for building maintainable CouchCMS projects.
 
 To see it in action, visit the <a href="https://github.com/GroveOS/Sapling/tree/root/docs">Docs</a>.
 
 ## Requirements
+- An adventurous spirit, as this project is experimental and will change like the wind prior to release of v1.0
 - Familiarity with CouchCMS (couchcms.com)
 - A Unix-like development environment that can run bash scripts:
 	- Linux or Mac
