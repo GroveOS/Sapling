@@ -1,21 +1,58 @@
 <cms:compress collapse_whitespace="true" disable_comments="true">
 
-<!-- EMBED IF AVAILABLE -->
-<!-- This function is like <cms:embed />, except if
-	the file is not availalbe, it simply won't render, instead
-	of throwing an error, as is default with <cms:embed /> -->
-<cms:func 'embed-if-available' file=''><cms:php>if(file_exists(K_SITE_DIR . '/' . K_SNIPPETS_DIR . "/<cms:show file />")){<cms:embed file=file />}</cms:php></cms:func>
 
-<!-- TEMPLATE BASENAME -->
-<!-- This function will strip the .php from
-	any php file passed as an argument -->
+<!--
+
+	.:: EMBED ::.
+
+	Powerful function for embedding an existing
+	snippet with parameters and a user-defined
+	callback function.
+	Author: tony.smirnov@gmail.com "Antony"
+	From: https://github.com/trendoman/Cms-Fu
+
+	Example: <cms:call 'embed' 'snippet.inc' />
+
+-->
+<cms:func 'embed' snippet='' udf=''>
+   <cms:if "<cms:func_exists udf />">
+      <cms:set result = "<cms:embed snippet/>" />
+      <cms:call udf result />
+   <cms:else />
+      <cms:if "<cms:exists snippet />">
+         <cms:embed snippet/>
+      </cms:if>
+   </cms:if>
+</cms:func>
+
+
+
+
+
+<!--
+
+	.:: TEMPLATE BASENAME ::.
+
+	This function will strip the .php from
+	any php file passed as an argument
+
+-->
 <cms:func 'template-basename' template=''><cms:php>echo(basename("<cms:show template />", '.php'));</cms:php></cms:func>
 
-<!-- VIEW ROUTER -->
-<!-- This function checks both routable and
+
+
+
+
+<!--
+
+	.:: VIEW ROUTER ::.
+
+	This function checks both routable and
 	non-routable templates and determins which
 	view to present based on matched_route or based
-	on the default k_is_page, k_is_home, etc variables -->
+	on the default k_is_page, k_is_home, etc variables
+
+-->
 <cms:func 'view-router' debug=debug>
 	<cms:if k_template_routable>
 		<cms:match_route debug=debug />
@@ -36,7 +73,14 @@
 </cms:func>
 
 
-<!-- INSERT CSS -->
+
+
+
+<!--
+
+	.:: INSERT CSS ::.
+
+-->
 <cms:func 'insert-css' template="<cms:call 'template-basename' k_template_name />">
 	<!-- Template CSS -->
 	<style type="text/css">
@@ -63,7 +107,16 @@
 </cms:func>
 
 
-<!-- Define site.config variable -->
+
+
+
+<!--
+
+	.:: DEFINE ::.
+
+	For defining site.config variables
+
+-->
 <cms:func 'define' var='' value='' scope='global'>
 	<cms:put var=var value=value scope=scope />
 </cms:func>
