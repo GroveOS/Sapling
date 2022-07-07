@@ -37,7 +37,7 @@
 	any php file passed as an argument
 
 -->
-<cms:func 'template-basename' template=''><cms:php>echo(basename("<cms:show template />", '.php'));</cms:php></cms:func>
+<cms:func 'template-basename' template=''><cms:php>echo(stristr("<cms:show template />", '.php', true));</cms:php></cms:func>
 
 
 
